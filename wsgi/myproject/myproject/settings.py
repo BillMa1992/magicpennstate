@@ -28,7 +28,7 @@ SECRETS = secrets.getter(os.path.join(DATA_DIR, 'secrets.json'))
 SECRET_KEY = SECRETS['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = 'True'
 
 from socket import gethostname
 ALLOWED_HOSTS = [
@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
-        'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
+        # 'NAME': os.path.join(DATA_DIR, 'db.sqlite3'),
     }
 }
 
@@ -112,3 +112,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(WSGI_DIR, 'static')
+
+STATICFILES_DIRS = (
+    ('css', os.path.join(STATIC_ROOT , 'css')),
+    ('js', os.path.join(STATIC_ROOT , 'js')),
+    ('img', os.path.join(STATIC_ROOT , 'img')),
+    ('video', os.path.join(STATIC_ROOT , 'video')),
+)
