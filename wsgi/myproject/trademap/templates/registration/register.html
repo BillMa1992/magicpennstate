@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href=" {% static 'css/user_admin.css'%}">
+<div class="wrapper">
+    <div class="container">
+    	<h1>Register</h1>
+    	<div style="margin:0 auto;text-align:center;">
+    		<form method="post" action=".">{% csrf_token %}
+		        <table border="0" style="margin:0 auto;">
+		            {{ form.as_table }}
+		        </table>
+		        <button type="submit" value="Register">Register</button>
+		        <button type="button" onclick="window.location.href='/evohome/login/' ">Login</button>
+		    </form>
+		  </div>
+    </div>
+</div>

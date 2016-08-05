@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href=" {% static 'css/user_admin.css'%}">
+<div class="wrapper">
+    <div class="container">
+        <h1>Login</h1>
+        {% if form.errors %}
+		        <p>Your username and password didn't match. Please try again.</p>
+		    {% endif %}
+		    <form class="form" method="post" action="/evohome/home/" >{% csrf_token %}
+		        <input type="text" placeholder="Username" name="username">
+		        <input type="password" placeholder="Password" name="password">
+		        <div style="margin:0 auto;text-align:center;">
+			        <button type="submit"  value="Login" id="login-button">Login</button>
+			        <button type="button" onclick="window.location.href='/evohome/register/' ">Register</button>
+			      </div>
+		        <input type="hidden" name="next" value="/home" />
+		    </form>
+    </div>
+</div>
+		
